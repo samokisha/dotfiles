@@ -1,0 +1,64 @@
+# Use custom format
+format= """
+[╭╴](#D7E8BA)\
+$username\
+$shlvl\
+$kubernetes\
+$docker_context\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$package\
+$dotnet\
+$helm\
+$nodejs\
+$aws\
+$env_var\
+$custom\
+$cmd_duration\
+$directory\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\
+$character"""
+
+[line_break]
+disabled = false
+
+[directory]
+truncation_symbol = "…/"
+format="[$path](#FFCF3C) [$read_only]($read_only_style) "
+
+[character]
+success_symbol = "[╰╴](#D7E8BA)[λ](bold green)"
+error_symbol = "[╰╴](#D7E8BA)[✗](bold red)"
+
+[hostname]
+ssh_only = false
+format =  "[$hostname]($style) "
+trim_at = ".companyname.com"
+disabled = false
+
+[username]
+style_user = "gray bold"
+style_root = "red bold"
+format = "[$user]($style) "
+disabled = false
+show_always = false
+
+[git_status]
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+behind = "⇣${count}"
+
+[docker_context]
+format = 'via 🐳 [(\($context\))](fg:27 bold) '
+disabled = false
+only_with_files = true
+
+[cmd_duration]
+min_time = 200
+format = "took [$duration](bold yellow) "
